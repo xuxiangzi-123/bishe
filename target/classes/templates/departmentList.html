@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Title</title>
+</head>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src=" https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+<link rel="stylesheet" href="../static/layui/css/layui.css">
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo" style="font-size: 30px">员工管理系统</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="javascript:;">信息管理</a></li>
+            <li class="layui-nav-item"><a href="http://localhost:8080/user/toSign">打卡</a></li>
+            <span class="layui-nav-bar" style="left: 61px; top: 55px; width: 0px; opacity: 0;"></span>
+        </ul>
+
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+                    贤心
+                    <span class="layui-nav-more"></span></a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="http://localhost:8080/user/toLogin">退了</a></li>
+            <span class="layui-nav-bar"></span></ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">员工管理<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="http://localhost:8080/user/toDepartment">部门管理</a></dd>
+                        <dd><a href="http://localhost:8080/user/toPositionList">职位管理</a></dd>
+                        <dd><a href="http://localhost:8080/user/toUserList">信息管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="http://localhost:8080/user/toCountList">数据统计<span class="layui-nav-more"></span></a>
+                </li>
+                <span class="layui-nav-bar" style="top: 22.5px; height: 0px; opacity: 0;"></span></ul>
+        </div>
+    </div>
+<div class="layui-body" style="margin:50px auto; text-align: center">
+    <table class="layui-hide" id="test2">
+            <div class="layui-form-item" style="display: inline-block;width: 500px">
+                <div class="layui-input-inline">
+                    <input id="dname" type="text" name="dname" autocomplete="off" placeholder="请输用户名进行查询" class="layui-input" style="height: 30px">
+                </div>
+                <button class="layui-btn layui-btn-sm" onclick="search()">
+                    <i class="layui-icon layui-icon-search"></i>
+                </button>
+            </div>
+        <div id="table" lay-filter="barDemo">
+
+        </div>
+    </table>
+</div>
+<div id="addRole" style="display: none">
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">部门名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" id="name" lay-verify="title" autocomplete="off"  class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">部门介绍</label>
+            <div class="layui-input-block">
+                <textarea type="text" name="introduction" id="introduction" placeholder="请输入内容" class="layui-textarea"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+<div class="layui-body" style="float: left;display: block;margin-top: 500px">
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        //初始化饼状图
+        function chushihua(myChart){
+            var option = {
+                title:{
+                    text:'部门人数统计'
+                },
+                series:[{
+                    name:'访问量',
+                    type:'pie',
+                    radius:'90%',
+                    data:[
+                        {value:0,name:'无'},
+                    ]
+                }]
+            };
+
+            myChart.setOption(option);
+        }
+
+        function fuzhi(myChart){
+            $.ajax({
+                contentType : "application/json",
+                type : "GET",
+                url : "http://localhost:8080/department/count",
+                dataType : "json",
+                success : function(data) {
+                    //创建一个数组，用来装对象传给series.data，因为series.data里面不能直接鞋for循环
+                    var servicedata=[];
+
+                    for(var i=0;i<data.length;i++){
+                        var obj=new Object();
+                        obj.name=data[i].name;
+                        obj.value=data[i].num;
+                        servicedata[i]=obj;
+                    }
+
+                    myChart.setOption({
+                        title:{
+                            text:'部门人数统计'
+                        },
+                        series:[{
+                            name:'访问量',
+                            type:'pie',
+                            radius:'60%',
+                            data:servicedata,
+                        }]
+
+                    });
+
+                }
+            });
+        }
+
+        //初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        chushihua(myChart);
+        fuzhi(myChart);
+
+    </script>
+</div>
+</body>
+
+<script src="../static/layui/layui.js" type="text/javascript"></script>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#entryTime' //指定元素
+        });
+        laydate.render({
+            elem: '#birthday' //指定元素
+        });
+    });
+
+    layui.use(['table','element','form','upload','laydate'],function () {
+        var table = layui.table;
+        table.render({
+            elem: '#table'
+            ,id:'departmentTable'
+            ,url: 'http://localhost:8080/department/selectAllDepartment' //获取数据
+            ,page: {
+                limit:5,
+                limits:[5,6,7],
+                first:'首页',
+                last:'尾页',
+                layout:['prev', 'page', 'next','count','limit','skip','refresh']
+            }//开启分页
+            ,toolbar:'true' //开启工具栏
+            ,cols: [
+                [ //表头
+                    {type:'checkbox',fixed:'left'},
+                    {field:'id',  title: '编号', sort: true}
+                    ,{field:'dname', title: '部门名称'}
+                    ,{field:'createTime',  title: '创建时间', sort: true}
+                    ,{field:'updateTime', title: '修改时间', sort: true}
+                    ,{field:'creator', title: '创建人'}
+                    ,{field:'introduction', title: '部门介绍'}
+                    ,{filed:'right',title:'操作', toolbar:'#barDemo'}//引入自定义工具
+                ]
+            ],
+            parseData: function (resp) {
+                return {
+                    "code":0,
+                    "msg":"请求成功",
+                    "data":resp.list,
+                    "count":resp.total
+                }
+            }
+        });
+        //添加行工具
+        table.on('tool(barDemo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'edit'){
+                layer.open({
+                    type:1,
+                    content:$("#addRole"),
+                    area:["800px","450px"],
+                    maxWidth:800,
+                    maxHeight:460,
+                    btn:["修改","取消"],
+                    yes:function(index,obj){
+                        var d = {};
+                        d.id = data.id;
+                        d.name=$("#name").val();
+                        d.introduction=$("#introduction").val();
+                        $.ajax({
+                            url:"http://localhost:8080/department/updateDepartment",
+                            type:"post",
+                            data:d,
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == 1) {
+                                    layer.msg("修改成功成功");
+                                    layer.close(index); //关闭弹出层
+                                    layui.table.reload("departmentTable", {
+                                        page: {
+                                            curr: 1 //重新从第 1 页开始
+                                        }
+                                    });
+                                }else{
+                                    layer.msg("修改失败");
+                                }
+                            }
+                        })
+                    },
+                    cancel:function(index,obj){
+
+                    }
+                })
+            }
+        });
+    });
+    function search() {
+        var dname =document.getElementById("dname").value;
+        console.info(dname)
+        layui.table.reload("departmentTable",{
+            where:{
+                "dname": dname
+            }
+        });
+    }
+</script>
+</html>

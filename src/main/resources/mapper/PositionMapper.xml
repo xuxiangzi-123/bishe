@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.management.mapper.PositionMapper">
+    <select id="selectAllPosition" resultType="com.management.entity.rsp.PositionRsp">
+        SELECT * FROM positions AS p
+        LEFT JOIN departments AS d ON d.uuid=p.d_uuid
+        <if test="pname !=null and pname !='' ">
+            where p.p_name like concat('%', #{pname}, '%')
+        </if>
+    </select>
+    <insert id="addPosition"  keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO positions (d_uuid,p_name,introduction,create_time,update_time,creator)
+        VALUES(#{dUuid},#{pName},#{introduction},NOW(),NOW(),#{creator})
+    </insert>
+    <delete id="deletePosition">
+        DELETE FROM departments WHERE uuid=#{uuid}
+    </delete>
+    <update id="updatePosition">
+        UPDATE departments SET
+        <if test="pName != null and pName !=''">
+            p_name=#{pName},
+        </if>
+        <if test="creator != null and creator !=''">
+            creator=#{creator},
+        </if>
+
+        <if test="introduction != null and introduction !=''">
+            introduction=#{introduction},
+        </if>
+        <if test="inTime != null and inTime != '' ">
+            in_time=#{inTime}
+        </if>
+        <if test="outTime != null and outTime != '' ">
+            out_time=#{outTime}
+        </if>
+        update_time=NOW()
+
+        WHERE uuid=#{uuid}
+    </update>
+    <select id="selectPositionUuid" resultType="com.management.entity.PositionBean">
+        SELECT * FROM positions where uuid=#{positionUuid}
+    </select>
+</mapper>

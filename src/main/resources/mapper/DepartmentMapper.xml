@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.management.mapper.DepartmentMapper">
+    <select id="selectAllDepartment" resultType="com.management.entity.DepartmentBean">
+        SELECT * FROM departments
+    </select>
+    <insert id="addDepartment"  keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO departments (uuid,d_name,create_time,update_time,creator,introduction)
+        VALUES(#{uuid},#{dName},NOW(),NOW(),#{creator},#{introduction})
+    </insert>
+    <delete id="deleteDepartment">
+        DELETE FROM departments WHERE uuid=#{uuid}
+    </delete>
+    <update id="updateDepartment">
+        UPDATE departments SET
+        <if test="dName != null and dName !=''">
+            d_name=#{dName},
+        </if>
+        <if test="creator != null and creator !=''">
+            creator=#{creator},
+        </if>
+
+        <if test="introduction != null and introduction !=''">
+            introduction=#{introduction},
+        </if>
+
+        update_time=NOW()
+
+        WHERE uuid=#{uuid}
+    </update>
+
+    <select id="selectAllByDepartmentName" resultType="com.management.entity.DepartmentBean">
+        SELECT * FROM departments
+        <if test="name != null and name != ''">
+        where d_name like concat('%', #{name}, '%')
+        </if>
+
+    </select>
+</mapper>

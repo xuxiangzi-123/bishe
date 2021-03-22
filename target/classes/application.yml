@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/staff?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    password: root
+    username: root
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+  mvc:
+    static-path-pattern: /static/**
+    date-format: 'yyyy-MM-dd HH:mm:ss'
+  jackson:
+    time-zone: GMT+8
+    date-format: 'yyyy-MM-dd HH:mm:ss'
+    serialization:
+      write-dates-as-timestamps: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  config-location: classpath:mybatis-config.xml
