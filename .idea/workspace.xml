@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df28eb8e-1c34-44fc-9e00-a0901d216d43" name="Default Changelist" comment="" />
+    <list default="true" id="df28eb8e-1c34-44fc-9e00-a0901d216d43" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +13,7 @@
   <component name="Git.Settings">
     <option name="PATH_TO_GIT" value="D:\Git\bin\git.exe" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1p9hyW16YV40I4Fqrpc0xOZGYML" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -61,7 +65,7 @@
       <updated>1614601469325</updated>
       <workItem from="1614601473825" duration="2664000" />
       <workItem from="1616306626666" duration="1814000" />
-      <workItem from="1616420688949" duration="302000" />
+      <workItem from="1616420688949" duration="935000" />
     </task>
     <servers />
   </component>
@@ -129,5 +133,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616421001384" />
+    <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616421638713">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1616421638713" />
   </component>
 </project>
