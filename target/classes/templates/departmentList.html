@@ -243,6 +243,30 @@
                     }
                 })
             }
+            if(obj.event === 'del') {
+                var uuid = data.uuid
+                layer.confirm('你确定删除文章？', {
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
+                    $.ajax({
+                        url: "http://localhost:8080/department/deleteDepartment",
+                        type: "post",
+                        data: {id: uuid},
+                        dataType: "json",
+                        success: function (data) {
+                            if (data == 1) {
+                                layer.msg('删除成功', {icon: 1})
+                                location.reload();
+                            }
+                            if (data == 0) {
+                                layer.msg('删除失败', {icon: 2})
+                                location.reload();
+                            }
+                        }
+                    });
+                });
+            }
+
         });
     });
     function search() {

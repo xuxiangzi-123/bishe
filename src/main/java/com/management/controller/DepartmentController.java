@@ -7,6 +7,7 @@ import com.management.entity.DepartmentBean;
 import com.management.entity.rsp.EchartsRsp;
 import com.management.service.serviceImpl.DepartmentServiceImpl;
 import com.management.utils.BaseResponse;
+import com.management.utils.UserInfoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

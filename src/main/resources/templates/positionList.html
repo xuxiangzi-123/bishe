@@ -249,7 +249,7 @@
                         d.age=$("#age").val();
 
                         $.ajax({
-                            url:"http://localhost:8080/user/editUser",
+                            url:"http://localhost:8080/position/updatePosition",
                             type:"post",
                             data:d,
                             dataType: "json",
@@ -273,7 +273,31 @@
                     }
                 })
             }
+            if(obj.event === 'del') {
+                var uuid =data.uuid
+                layer.confirm('你确定删除文章？', {
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
+                    $.ajax({
+                        url: "http://localhost:8080/position/deletePosition",
+                        type: "post",
+                        data: {uuid: uuid},
+                        dataType: "json",
+                        success: function (data) {
+                            if (data == 1) {
+                                layer.msg('删除成功', {icon: 1})
+                                layer.close();
+                            }
+                            if (data == 0) {
+                                layer.msg('删除失败', {icon: 2})
+                                layer.close();
+                            }
+                        }
+                    });
+                });
+            }
         });
+
     });
     function search() {
         var pname =document.getElementById("pname").value;

@@ -41,4 +41,7 @@ public interface UserMapper {
     UserBean selectByUuid(@Param("uuid") String uuid);
 
     UserInfoBean selectByInfoUuid(@Param("uuid") String uuid);
+
+    int delete(@Param("uuid")String uuid);
+    int deleteUser(@Param("uuid")String uuid);
 }

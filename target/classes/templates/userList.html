@@ -141,12 +141,11 @@
 <div id="addRole" style="display: none">
     <form class="layui-form" action="">
         <div class="layui-form-item">
-            <label class="layui-form-label">用户名</label>
-            <div class="layui-input-block">
-                <input type="text" name="name" id="name" lay-verify="title" autocomplete="off"  class="layui-input">
-            </div>
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" id="name" lay-verify="title" autocomplete="off"  class="layui-input">
         </div>
-
+    </div>
         <div class="layui-form-item">
             <label class="layui-form-label">入职时间</label>
             <div class="layui-input-inline">
@@ -245,7 +244,7 @@
                     btn:["修改","取消"],
                     yes:function(index,obj){
                         var d = {};
-                        d.id = data.id;
+                        d.uuid = data.uuid;
                         d.name=$("#name").val();
                         d.sex=$('input[name="sex"]:checked').val();
                         d.entryTime=$("#entryTime").val();
@@ -276,6 +275,29 @@
 
                     }
                 })
+            }
+            if(obj.event === 'del') {
+                var uuid =data.uuid
+                layer.confirm('你确定删除文章？', {
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
+                    $.ajax({
+                        url: "http://localhost:8080/user/deleteUser",
+                        type: "post",
+                        data: {uuid: uuid},
+                        dataType: "json",
+                        success: function (data) {
+                            if (data == 1) {
+                                layer.msg('删除成功', {icon: 1})
+                                layer.close();
+                            }
+                            if (data == 0) {
+                                layer.msg('删除失败', {icon: 2})
+                                layer.close();
+                            }
+                        }
+                    });
+                });
             }
         });
     });

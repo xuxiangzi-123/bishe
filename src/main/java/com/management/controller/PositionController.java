@@ -9,6 +9,7 @@ import com.management.entity.rsp.PositionRsp;
 import com.management.service.serviceImpl.DepartmentServiceImpl;
 import com.management.service.serviceImpl.PositionServiceImpl;
 import com.management.utils.BaseResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/position/")
 public class PositionController {
 
@@ -44,13 +46,20 @@ public class PositionController {
     @RequestMapping("deletePosition")
     public BaseResponse deleteDepartment(String uuid){
         BaseResponse baseResponse=new BaseResponse();
-
+        if (positionService.deletePosition(uuid)){
+            baseResponse.setCode(1);
+            return baseResponse;
+        }
         baseResponse.setCode(0);
         return baseResponse;
     }
     @RequestMapping("updatePosition")
-    public BaseResponse updateDepartment(String uuid, String dName, String creator, String introduction){
+    public BaseResponse updateDepartment(String uuid, String dName,String introduction){
         BaseResponse baseResponse=new BaseResponse();
+        if (positionService.updatePosition(uuid,dName,introduction)){
+            baseResponse.setCode(1);
+            return baseResponse;
+        }
         baseResponse.setCode(0);
         return baseResponse;
     }

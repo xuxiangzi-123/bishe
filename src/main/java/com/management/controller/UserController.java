@@ -7,12 +7,14 @@ import com.management.entity.rsp.EchartsRsp;
 import com.management.entity.rsp.UserRsp;
 import com.management.service.serviceImpl.UserServiceImpl;
 import com.management.utils.BaseResponse;
+import com.management.utils.UserInfoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.util.List;
 
@@ -40,10 +42,10 @@ public class UserController {
 
     @RequestMapping("login")
     @ResponseBody
-    public BaseResponse login(String userName,String password){
+    public BaseResponse login(String userName, String password, HttpServletRequest req, HttpServletRequest request){
         BaseResponse baseResponse=new BaseResponse();
 
-        UserBean login = userService.login(userName, password);
+        UserBean login = userService.login(userName, password,req.getSession());
 
         if (login != null){
             baseResponse.setCode(1);
@@ -137,4 +139,15 @@ public class UserController {
         return baseResponse;
     }
 
+    @RequestMapping("deleteUser")
+    @ResponseBody
+    public BaseResponse deleteUser(String uuid){
+        BaseResponse baseResponse = new BaseResponse();
+        if (userService.delete(uuid)){
+            baseResponse.setCode(1);
+        }else {
+            baseResponse.setCode(0);
+        }
+        return baseResponse;
+    }
 }

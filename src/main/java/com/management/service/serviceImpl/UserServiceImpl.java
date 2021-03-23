@@ -12,6 +12,7 @@ import com.management.utils.UserInfoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,11 +37,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserBean login(String userName, String password) {
+    public UserBean login(String userName, String password, HttpSession sess) {
         if (userName != null && password != null){
             UserBean login = userMapper.login(userName, password);
             if (login != null){
-                UserInfoUtils.setUser(login);
+                sess.setAttribute("UserBean",login);
                 return login;
             }
         }
@@ -122,6 +123,22 @@ public class UserServiceImpl implements UserService {
     public int countPositionUser(String position) {
         int i = userMapper.countPositionUser(position);
         return i;
+    }
+
+    @Override
+    public Boolean delete(String userId) {
+        if (userId != null){
+            int delete = userMapper.delete(userId);
+            if (delete>0){
+                int i = userMapper.deleteUser(userId);
+                if (i>0){
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
     }
 
     @Override

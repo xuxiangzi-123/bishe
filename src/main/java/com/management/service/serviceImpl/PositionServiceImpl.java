@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 @Service
 public class PositionServiceImpl implements PositionService {
 
@@ -24,7 +26,7 @@ public class PositionServiceImpl implements PositionService {
     @Override
     public List<PositionRsp> selectAllPosition(String pname) {
         List<PositionRsp> positionRsps = positionMapper.selectAllPosition(pname);
-        if (positionRsps != null){
+        if (positionRsps != null) {
             return positionRsps;
         }
         return null;
@@ -39,7 +41,7 @@ public class PositionServiceImpl implements PositionService {
         }
         System.out.println(uuid);
         int i = positionMapper.addPosition(dUuid, pName, creator, introduction);
-        if (i>0){
+        if (i > 0) {
             return true;
         }
         return false;
@@ -47,22 +49,28 @@ public class PositionServiceImpl implements PositionService {
 
     @Override
     public Boolean deletePosition(String dUuid) {
-       return false;
+        int i = positionMapper.deletePosition(dUuid);
+        if (i > 0) {
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public Boolean updatePosition(String dUuid, String pName, String creator, String introduction) {
+    public Boolean updatePosition(String dUuid, String pName,String introduction) {
+        String creator= UserInfoUtils.getUserUUID();
+        positionMapper.updatePosition(dUuid,pName,creator,introduction);
         return false;
     }
 
     @Override
     public List<EchartsRsp> count(String position) {
-        ArrayList<EchartsRsp> list=new ArrayList<>();
+        ArrayList<EchartsRsp> list = new ArrayList<>();
         List<PositionRsp> positionRsps = this.selectAllPosition(null);
-        if (positionRsps != null){
+        if (positionRsps != null) {
             for (PositionRsp positionRsp : positionRsps) {
-                EchartsRsp echartsRsp=new EchartsRsp();
-                if (positionRsp != null){
+                EchartsRsp echartsRsp = new EchartsRsp();
+                if (positionRsp != null) {
                     int i = userService.countUserByDepartment(positionRsp.getUuid());
                     echartsRsp.setName(positionRsp.getPName());
                     echartsRsp.setNum(i);

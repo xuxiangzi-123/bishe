@@ -9,15 +9,17 @@ import java.util.List;
 
 public interface PositionService {
     List<PositionRsp> selectAllPosition(String pname);
-    Boolean addPosition(@Param("dUuid") String dUuid,
-                        @Param("pName") String pName,
-                        @Param("creator") String creator,
-                        @Param("introduction") String introduction);
-    Boolean deletePosition(@Param("dUuid") String dUuid);
-    Boolean updatePosition(@Param("dUuid") String dUuid,
-                           @Param("pName") String pName,
-                           @Param("creator") String creator,
-                           @Param("introduction") String introduction);
+
+    Boolean addPosition(String dUuid,
+                        String pName,
+                        String creator,
+                        String introduction);
+
+    Boolean deletePosition(String dUuid);
+
+    Boolean updatePosition(String dUuid,
+                           String pName,
+                           String introduction);
 
     List<EchartsRsp> count(String position);
 }

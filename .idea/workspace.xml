@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="df28eb8e-1c34-44fc-9e00-a0901d216d43" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="df28eb8e-1c34-44fc-9e00-a0901d216d43" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PATH_TO_GIT" value="D:\Git\bin\git.exe" />
@@ -18,21 +25,60 @@
   <component name="ProjectId" id="1p9hyW16YV40I4Fqrpc0xOZGYML" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.management" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\ideaworkspace\management\src\main\resources" />
       <recent name="D:\ideaworkspace\management\src\main\java\com\management" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.ManagementApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManagementApplicationTests.removeZeroSumSublists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management" />
+      <option name="MAIN_CLASS_NAME" value="com.management.ManagementApplicationTests" />
+      <option name="METHOD_NAME" value="removeZeroSumSublists(com.management.ListNode)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="management" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.management.ManagementApplication" />
@@ -40,6 +86,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ManagementApplicationTests.removeZeroSumSublists" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -53,6 +104,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -66,76 +118,11 @@
       <workItem from="1614601473825" duration="2664000" />
       <workItem from="1616306626666" duration="1814000" />
       <workItem from="1616420688949" duration="935000" />
+      <workItem from="1616465030182" duration="15701000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614603363555">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1614603363555" />
-    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1616420990270">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616420990270" />
-    <state width="1323" height="443" key="GridCell.Tab.0.bottom" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.0.center" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.0.left" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.0.right" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.1.bottom" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.1.center" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.1.left" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.1.right" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.2.bottom" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.2.center" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.2.left" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state width="1323" height="443" key="GridCell.Tab.2.right" timestamp="1616308464294">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="443" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1616308464294" />
-    <state x="184" y="6" key="SettingsEditor" timestamp="1616421001384">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616421001384" />
-    <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616421638713">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1616421638713" />
+    <option name="version" value="3" />
   </component>
 </project>

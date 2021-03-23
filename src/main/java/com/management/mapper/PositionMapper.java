@@ -25,9 +25,7 @@ public interface PositionMapper {
     int updatePosition(@Param("uuid") String uuid,
                        @Param("pName") String pName,
                        @Param("creator") String creator,
-                       @Param("introduction") String introduction,
-                       @Param("inTime") Date inTime,
-                       @Param("outTime") Date outTime);
+                       @Param("introduction") String introduction);
 
     PositionBean selectPositionUuid(@Param("positionUuid") String positionUuid);
 }

@@ -77,4 +77,10 @@
     <select id="selectByInfoUuid" resultType="com.management.entity.UserInfoBean">
         select *from user_info where uuid=#{uuid}
     </select>
+    <delete id="delete">
+        delete from user where uuid= #{uuid}
+    </delete>
+    <delete id="deleteUser">
+        delete from user_info where uuid=#{uuid}
+    </delete>
 </mapper>
